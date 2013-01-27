@@ -12,10 +12,10 @@ install-sysconfDATA:
 	@list='$(sysconf_DATA)'; for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  f=$(am__strip_dir) \
-	  if test "$(DESTDIR)$(sysconfdir)/$$f" -nt "$$d$$p"; then \
+	  if test "$(DESTDIR)$(sysconfdir)/$$p" -nt "$$d$$p"; then \
 	    echo " Ignore exists sysconf data file '$$p'"; else \
-	    echo " $(sysconfDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(sysconfdir)/$$f'"; \
-	    $(sysconfDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(sysconfdir)/$$f"; \
+	    echo " $(INSTALL) '$$d$$p' '$(DESTDIR)$(sysconfdir)/$$p'"; \
+	    $(INSTALL) "$$d$$p" "$(DESTDIR)$(sysconfdir)/$$p"; \
 	  fi; \
 	done	
 
